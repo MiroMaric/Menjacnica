@@ -14,6 +14,8 @@ public class Menjacnica {
 	}
 
 	public void setValute(LinkedList<Valuta> valute) {
+		if(valute==null)
+			throw new RuntimeException("Lista sa valutama menjacnice ne moze biti null");
 		this.valute = valute;
 	}
 

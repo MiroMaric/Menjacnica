@@ -25,6 +25,8 @@ public class Valuta {
 	}
 
 	public void setNaziv(String naziv) {
+		if(naziv==null || naziv.length()<3)
+			throw new RuntimeException("Naziv valute ne moze biti null ili manji od 3 karaktera");
 		this.naziv = naziv;
 	}
 
@@ -33,12 +35,16 @@ public class Valuta {
 	}
 
 	public void setSkracenNaziv(String skracenNaziv) {
+		if(skracenNaziv==null)
+			throw new RuntimeException("Skracen naziv valute ne moze biti null");
 		this.skracenNaziv = skracenNaziv;
 	}
 	public Kurs getKurs() {
 		return kurs;
 	}
 	public void setKurs(Kurs kurs) {
+		if(kurs==null)
+			throw new RuntimeException("Kurs ne moze biti null");
 		this.kurs = kurs;
 	}
 	@Override
