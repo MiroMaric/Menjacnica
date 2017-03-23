@@ -8,6 +8,8 @@ public class Kurs {
 	private double srednji;
 	private GregorianCalendar datum = new GregorianCalendar();
 	public Kurs(double prodajni, double kupovni, double srednji,GregorianCalendar datum){
+		if(prodajni<=0 || kupovni<=0 || srednji<=0 || datum==null)
+			throw new RuntimeException("Greska prilikom unosa podataka");
 		this.prodajni = prodajni;
 		this.kupovni = kupovni;
 		this.srednji = srednji;

@@ -9,7 +9,8 @@ import valute.Valuta;
 
 public class Menjacnica implements MenjacnicaInterfejs {
 	
-	//private String naziv;
+	String naziv;
+	String adresa;
 	LinkedList<Valuta> valute = new LinkedList<Valuta>();
 
 	@Override
