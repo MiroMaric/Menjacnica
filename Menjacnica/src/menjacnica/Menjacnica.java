@@ -15,19 +15,31 @@ public class Menjacnica implements MenjacnicaInterfejs {
 	@Override
 	public void dodajKurs(String naziv, String skracenNaziv, double prodajni, double kupovni, double srednji,
 			GregorianCalendar datum) {
-		// TODO Auto-generated method stub
+		Valuta valuta = new Valuta(naziv, skracenNaziv, prodajni, kupovni, srednji, datum);
+		valute.add(valuta);
 		
 	}
 
 	@Override
 	public void obrisiKurs(String naziv, String skracenNaziv, GregorianCalendar datum) {
-		// TODO Auto-generated method stub
-		
+		Valuta valuta = new Valuta(naziv, skracenNaziv, datum);
+		for(int i=0;i<valute.size();i++){
+			if(valute.get(i).equals(valuta)){
+				valute.remove(valuta);
+				return;
+			}
+		}
 	}
 
 	@Override
 	public Kurs pronadjiKursValute(String naziv, String skracenNaziv, GregorianCalendar datum) {
-		// TODO Auto-generated method stub
+		Valuta valuta = new Valuta(naziv, skracenNaziv, datum);
+		for(int i=0;i<valute.size();i++){
+			if(valute.get(i).equals(valuta)){
+				valute.remove(valuta);
+				return valute.get(i).getKurs();
+			}
+		}
 		return null;
 	}
 	

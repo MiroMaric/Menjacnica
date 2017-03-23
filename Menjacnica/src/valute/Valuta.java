@@ -8,13 +8,18 @@ public class Valuta {
 	private Kurs kurs;
 	
 	public Valuta(String naziv,String skracenNaziv, double prodajni, double kupovni, double srednji, GregorianCalendar datum){
+		if(naziv==null || skracenNaziv==null || prodajni<=0 || kupovni<=0 || srednji<=0 || datum==null)
+			throw new RuntimeException("Pogresno unete vrednosti za kurs i/ili valutu");
 		this.naziv = naziv;
 		this.skracenNaziv = skracenNaziv;
 		kurs = new Kurs(prodajni, kupovni, srednji, datum);
 	}
-	public Valuta(String naziv,String skracenNaziv){
+	public Valuta(String naziv,String skracenNaziv, GregorianCalendar datum){
+		if(naziv==null || skracenNaziv==null)
+			throw new RuntimeException("Pogresno unete vrednosti za kurs i/ili valutu");
 		this.naziv = naziv;
 		this.skracenNaziv = skracenNaziv;
+		this.getKurs().setDatum(datum);
 	}
 	public Valuta(){
 		
